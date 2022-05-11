@@ -1,0 +1,19 @@
+#title{
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 30px;
+}
+
+.card{
+    padding: 10px;
+    border-radius: 1rem;
+    margin: auto;
+    margin-top: 50px;
+    border: black unset;
+    width: 500px;
+}
+
+img{
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
