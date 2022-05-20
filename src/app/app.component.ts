@@ -8,8 +8,17 @@ import { APICedulasService } from './service/api-cedulas.service';
 })
 export class AppComponent {
   title = 'cedula-api';
+  cedulas = []
+  constructor( private ApiCedulasService:APICedulasService ){  }
 
-  constructor( private ApiCedulasService:APICedulasService ){
-    
+  ngOnInit():void{
+    this.ApiCedulasService.getCedulas().subscribe(data => {
+      console.log(data)
+    },
+    err =>{
+      console.log(err.message);
+    }
+    )
   }
+
 }
