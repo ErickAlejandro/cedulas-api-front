@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+
 import { DomSanitizer } from '@angular/platform-browser';
+import { Data } from 'src/app/models/data';
+import { information_cedulas } from 'src/app/models/information_cedulas';
 import { APICedulasService } from 'src/app/service/api-cedulas.service';
 
 @Component({
@@ -13,14 +15,15 @@ export class ApiCedulasOcrComponent implements OnInit {
   public archivos: any = [];
   public preview!: string;
   public loading!: boolean;
+  public information_cedulas: information_cedulas = new information_cedulas();
 
-  constructor(private sanitizer: DomSanitizer, private rest:APICedulasService) { }
+  constructor(private sanitizer: DomSanitizer, private rest: APICedulasService) { }
 
   ngOnInit(): void {
 
   }
-// CODIGO PARA CAPTURAR LA IMAGEN
-  capturarFile(event:any){
+  // CODIGO PARA CAPTURAR LA IMAGEN
+  capturarFile(event: any) {
     const archivoCap = event.target.files[0];
     this.extraerBase64(archivoCap).then((imagen: any) => {
       this.preview = imagen.base;
@@ -28,8 +31,8 @@ export class ApiCedulasOcrComponent implements OnInit {
     })
     this.archivos.push(archivoCap)
   }
-// convertir a base 64 para previsualizar la imagen
-  extraerBase64 = async ($event: any) => new Promise((resolve, reject) =>{
+  // convertir a base 64 para previsualizar la imagen
+  extraerBase64 = async ($event: any) => new Promise((resolve, reject) => {
     try {
       const unsafeImg = window.URL.createObjectURL($event);
       const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
@@ -50,9 +53,10 @@ export class ApiCedulasOcrComponent implements OnInit {
 
     }
   })
-
-// CODIGO PARA LA SUBIDA DE ARCHIVOS
-  subirArchivo(): any{
+  
+  obj: [] | undefined
+  // CODIGO PARA LA SUBIDA DE ARCHIVOS
+  subirArchivo(): any {
     try {
       this.loading = true;
       const formularioDatos = new FormData();
@@ -62,15 +66,20 @@ export class ApiCedulasOcrComponent implements OnInit {
         console.log(archivo)
       })
 
-      this.rest.post(`http://44.201.180.246:5000/cedula/file-upload`, formularioDatos)
-      .subscribe((res: any) => {
-        this.loading = false;
-        console.log('Respuesta del servidor', res);
+      this.rest.post(`http://3.84.46.17:5000/cedula/file-upload`, formularioDatos)
+        .subscribe((res: any) => {
+          this.loading = false;
+          // Object.assign(information_cedulas, res)
+          const myObj = JSON.stringify(res.information_cedulas)
+          var obj = JSON.parse(myObj);
 
-      })
+          console.log('Respuesta del servidor', obj);
+          return obj
+        })
     } catch (e) {
       this.loading = false;
       console.log('ERROR', e)
     }
   }
+
 }
