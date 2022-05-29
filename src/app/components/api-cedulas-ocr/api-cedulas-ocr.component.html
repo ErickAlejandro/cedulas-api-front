@@ -54,7 +54,7 @@
         </tr>
       </thead>
       <tbody class="post">
-        <td scope="row">Lista</td>
+        <td scope="row" *ngFor="let item of obj">{{item}}</td>
       </tbody>
     </table>
   </div>

@@ -16,9 +16,9 @@ export class ApiCedulasOcrComponent implements OnInit {
   public preview!: string;
   public loading!: boolean;
   public information_cedulas: information_cedulas = new information_cedulas();
+  obj:any = [];
 
   constructor(private sanitizer: DomSanitizer, private rest: APICedulasService) { }
-  obj: any = [];
 
   ngOnInit(): void {
 
@@ -66,15 +66,14 @@ export class ApiCedulasOcrComponent implements OnInit {
         console.log(archivo)
       })
 
-      this.rest.post(`http://54.159.128.218:5000/cedula/file-upload`, formularioDatos)
+      this.rest.post(`http://3.87.200.229:5000/cedula/file-upload`, formularioDatos)
         .subscribe((res: any) => {
           this.loading = false;
-          // Object.assign(information_cedulas, res)
           const myObj = JSON.stringify(res.information_cedulas)
-          var obj = JSON.parse(myObj);
+          this.obj = JSON.parse(myObj);
 
-          console.log('Respuesta del servidor', obj);
-          return obj
+          console.log('Respuesta del servidor: ', this.obj);
+          return this.obj
         })
     } catch (e) {
       this.loading = false;
