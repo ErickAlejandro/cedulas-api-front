@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { DomSanitizer } from '@angular/platform-browser';
 import { Data } from 'src/app/models/data';
-import { information_cedulas } from 'src/app/models/information_cedulas';
+import { Information_cedulas } from 'src/app/models/information_cedulas';
 import { APICedulasService } from 'src/app/service/api-cedulas.service';
 
 @Component({
@@ -15,8 +15,8 @@ export class ApiCedulasOcrComponent implements OnInit {
   public archivos: any = [];
   public preview!: string;
   public loading!: boolean;
-  public information_cedulas: information_cedulas = new information_cedulas();
-  obj:any = [];
+  public information_cedulas: Information_cedulas = new Information_cedulas();
+  obj: any = [];
 
   constructor(private sanitizer: DomSanitizer, private rest: APICedulasService) { }
 
@@ -54,7 +54,7 @@ export class ApiCedulasOcrComponent implements OnInit {
 
     }
   })
-  
+
   // CODIGO PARA LA SUBIDA DE ARCHIVOS
   subirArchivo(): any {
     try {
@@ -66,13 +66,14 @@ export class ApiCedulasOcrComponent implements OnInit {
         console.log(archivo)
       })
 
-      this.rest.post(`http://3.87.200.229:5000/cedula/file-upload`, formularioDatos)
+      this.rest.post(`http://75.101.192.48:5000/cedula/file-upload`, formularioDatos)
         .subscribe((res: any) => {
           this.loading = false;
           const myObj = JSON.stringify(res.information_cedulas)
           this.obj = JSON.parse(myObj);
+          Object.assign(this.information_cedulas, this.obj)
 
-          console.log('Respuesta del servidor: ', this.obj);
+          console.log('Respuesta del servidor: ', this.information_cedulas);
           return this.obj
         })
     } catch (e) {

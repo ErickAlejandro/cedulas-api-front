@@ -1,12 +1,25 @@
 import { Data } from "./data";
 
-export class information_cedulas {
-  cedula!: string;
-  estado_civil!: string;
-  foto!: string;
-  lugar_nacimiento!: string
-  nacionalidad!: string
-  nombres!: string
-  sexo!: string
-  fecha_expiracion!: string
+export class Information_cedulas {
+  cedula: Data;
+  estado_civil: Data;
+  foto: Data;
+  lugar_nacimiento: Data
+  fecha_nacimiento: Data
+  nacionalidad: Data
+  nombres: Data
+  sexo: Data
+  fecha_expiracion: Data
+
+  constructor(){
+    this.cedula = new Data;
+    this.estado_civil = new Data;
+    this.foto = new Data;
+    this.lugar_nacimiento = new Data;
+    this.fecha_nacimiento = new Data;
+    this.nacionalidad = new Data;
+    this.nombres = new Data;
+    this.sexo = new Data;
+    this.fecha_expiracion = new Data;
+  }
 }
