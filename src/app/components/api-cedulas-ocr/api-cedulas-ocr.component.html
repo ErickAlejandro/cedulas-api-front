@@ -16,28 +16,72 @@
       </h6>
     </div>
   </ng-container>
-
-  <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 35rem;">
-    <h5 class="card-title text-center ">Cedula de Identidad</h5>
-    <!-- PREVISTA DE LA IMAGEN -->
-    <div *ngIf="preview">
-      <img width="515px" [src]="preview" alt="">
-    </div>
-    <div>
-      <p class="card-text text-center"> Agregar una imagen de alguna cedula de identidad Ecuatoriana, puede ser tanto la
-        parte frontal como la trasera de este documento.</p>
-      <div class="mb-3">
-        <!-- definir componenete -->
-        <input (change)="capturarFile($event)" class="form-control" type="file" id="formFile">
+<div class="container">
+  <div class="row">
+    <div class="card shadow col-8 p-3 mb-5 bg-body rounded" style="width: 35rem;">
+      <h5 class="card-title text-center ">Cedula de Identidad</h5>
+      <!-- PREVISTA DE LA IMAGEN -->
+      <div *ngIf="preview">
+        <img width="515px" [src]="preview" alt="Imagen de la cedula">
       </div>
-
       <div>
-        <button type="button" [disabled]="loading" (click)="subirArchivo()">{{(loading) ? 'Cargando ...' : 'Subir Archivo'}}</button>
+        <p class="card-text text-center"> Agregar una imagen de alguna cedula de identidad Ecuatoriana, puede ser tanto la
+          parte frontal como la trasera de este documento.</p>
+          <div class="mb-3">
+            <!-- definir componenete -->
+            <input (change)="capturarFile($event)" class="form-control" type="file" id="formFile">
+          </div>
+          
+          <div>
+            <button type="button" [disabled]="loading" (click)="subirArchivo()">{{(loading) ? 'Cargando ...' : 'Subir Archivo'}}</button>
+          </div>
+        </div>
       </div>
-
+      <div class="card shadow col-3 p-3 mb-5 bg-body rounded" style="width: 25rem;height: auto;" *ngIf="loading == false">
+        <h5 class="card-title text-center">Lista de campos de una cedula</h5>
+        <table>
+          <thead style="text-align: justify;">
+            <th scope="col">Campos</th>
+          </thead>
+          <tbody>
+            <tr style="text-align: center;">
+              <td scope="row"> {{this.llaves[0]}} </td>
+              <td scope="row"><input type="checkbox"></td>
+            </tr>
+            <tr style="text-align: center;">
+              <td scope="row">{{this.llaves[1]}} </td>
+              <td scope="row"> <input type="checkbox"></td>
+            </tr>
+            <tr style="text-align: center;">
+              <td scope="row">{{this.llaves[2]}} </td>
+              <td scope="row"> <input type="checkbox"></td>
+            </tr>
+            <tr style="text-align: center;">
+              <td scope="row">{{this.llaves[3]}} </td>
+              <td scope="row"> <input type="checkbox"></td>
+            </tr>
+            <tr style="text-align: center;">
+              <td scope="row"> {{this.llaves[4]}} </td>
+              <td scope="row"> <input type="checkbox"></td>
+            </tr>
+            <tr style="text-align: center;">
+              <td scope="row">{{this.llaves[5]}} </td>
+              <td scope="row"> <input type="checkbox"></td>
+            </tr>
+            <tr style="text-align: center;">
+              <td scope="row">{{this.llaves[6]}} </td>
+              <td scope="row"> <input type="checkbox"></td>
+            </tr>
+            <tr style="text-align: center;">
+              <td scope="row">{{this.llaves[7]}} </td>
+              <td scope="row"> <input type="checkbox"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-
-  </div>
+</div>
+  
 
   <div class="card shadow p-3 mb-5 bg-body rounded" *ngIf="loading == false" style="width: auto; margin: 15px;">
     <h5 class="card-text text-center" >Información de la cedula</h5>
@@ -52,7 +96,7 @@
       <tbody class="post">
         <tr>
           <td scope="row"> {{this.llaves[0]}}</td>
-          <td scope="row" >{{this.information_cedulas.cedula.text_ocr}}</td>
+          <td scope="row" >{{this.obj.cedula.text_ocr}}</td>
         </tr>
         <tr>
           <td scope="row" > {{this.llaves[6]}}</td>
@@ -60,27 +104,27 @@
         </tr>
         <tr>
           <td scope="row" > {{this.llaves[3]}}</td>
-          <td scope="row" >{{this.information_cedulas.lugar_nacimiento.text_ocr}}</td>
+          <td scope="row" >{{this.obj.lugar_nacimiento.text_ocr}}</td>
         </tr>
         <tr>
           <td scope="row" > {{this.llaves[4]}}</td>
-          <td scope="row" >{{this.information_cedulas.fecha_nacimiento.text_ocr}}</td>
+          <td scope="row" >{{this.obj.fecha_nacimiento.text_ocr}}</td>
         </tr>
         <tr>
           <td scope="row" > {{this.llaves[5]}}</td>
-          <td scope="row" >{{this.information_cedulas.nacionalidad.text_ocr}}</td>
+          <td scope="row" >{{this.obj.nacionalidad.text_ocr}}</td>
         </tr>
         <tr>
           <td scope="row" > {{this.llaves[7]}}</td>
-          <td scope="row" >{{this.information_cedulas.sexo.text_ocr}}</td>
+          <td scope="row" >{{this.obj.sexo.text_ocr}}</td>
         </tr>
         <tr>
           <td scope="row" > {{this.llaves[1]}}</td>
-          <td scope="row" >{{this.information_cedulas.estado_civil.text_ocr}}</td>
+          <td scope="row" >{{this.obj.estado_civil.text_ocr}}</td>
         </tr>
         <tr>
           <td scope="row" > {{this.llaves[8]}}</td>
-          <td scope="row" >{{this.information_cedulas.fecha_expiracion.text_ocr}}</td>
+          <td scope="row" >{{this.obj.fecha_expiracion.text_ocr}}</td>
         </tr>
       </tbody>
     </table>

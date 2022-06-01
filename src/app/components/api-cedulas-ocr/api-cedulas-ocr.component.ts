@@ -75,7 +75,7 @@ export class ApiCedulasOcrComponent implements OnInit {
           this.obj = JSON.parse(myObj);
           Object.assign(this.information_cedulas, this.obj)
 
-          console.log('Respuesta del servidor: ', this.information_cedulas);
+          console.log('Respuesta del servidor: ', this.obj = this.information_cedulas);
           return this.obj
         })
     } catch (e) {
