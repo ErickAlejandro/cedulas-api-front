@@ -18,6 +18,8 @@ export class ApiCedulasOcrComponent implements OnInit {
   public information_cedulas: Information_cedulas = new Information_cedulas();
   obj: any = [];
 
+  llaves = Object.keys(this.information_cedulas)
+
   constructor(private sanitizer: DomSanitizer, private rest: APICedulasService) { }
 
   ngOnInit(): void {
@@ -81,5 +83,5 @@ export class ApiCedulasOcrComponent implements OnInit {
       console.log('ERROR', e)
     }
   }
-
+  
 }

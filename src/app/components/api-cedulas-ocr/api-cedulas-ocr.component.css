@@ -27,3 +27,8 @@ button{
     box-shadow: 1px;
     border-radius: 3px;
 }
+
+table{
+    margin-top: 10px;
+    border-radius: 10px;
+}

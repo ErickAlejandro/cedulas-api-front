@@ -39,76 +39,48 @@
 
   </div>
 
-  <div class="card shadow p-3 mb-5 bg-body rounded" style="width: auto;">
+  <div class="card shadow p-3 mb-5 bg-body rounded" *ngIf="loading == false" style="width: auto; margin: 15px;">
     <h5 class="card-text text-center" >Información de la cedula</h5>
 
-    <table class="table">
+    <table class="table table-dark">
       <thead>
         <tr>
-          <th scope="col">Campo</th>
-          <th scope="col">Texto del campo</th>
-          <th scope="col">Coordenada x0</th>
-          <th scope="col">Coordenada x1</th>
-          <th scope="col">Coordenada y0</th>
-          <th scope="col">Coordenada y1</th>
+          <th scope="col">CAMPO</th>
+          <th scope="col">TEXTO</th>
         </tr>
       </thead>
       <tbody class="post">
         <tr>
-          <td scope="row"> </td>
+          <td scope="row"> {{this.llaves[0]}}</td>
           <td scope="row" >{{this.information_cedulas.cedula.text_ocr}}</td>
-          <td scope="row" >{{this.information_cedulas.cedula.x0}}</td>
-          <td scope="row" >{{this.information_cedulas.cedula.x1}}</td>
-          <td scope="row" >{{this.information_cedulas.cedula.y0}}</td>
-          <td scope="row" >{{this.information_cedulas.cedula.y1}}</td>
         </tr>
         <tr>
-          <td scope="row" > </td>
+          <td scope="row" > {{this.llaves[6]}}</td>
           <td scope="row" >{{this.information_cedulas.nombres.text_ocr}}</td>
-          <td scope="row" >{{this.information_cedulas.nombres.x0}}</td>
-          <td scope="row" >{{this.information_cedulas.nombres.x1}}</td>
-          <td scope="row" >{{this.information_cedulas.nombres.y0}}</td>
-          <td scope="row" >{{this.information_cedulas.nombres.y1}}</td>
         </tr>
         <tr>
-          <td scope="row" > </td>
+          <td scope="row" > {{this.llaves[3]}}</td>
           <td scope="row" >{{this.information_cedulas.lugar_nacimiento.text_ocr}}</td>
-          <td scope="row" >{{this.information_cedulas.lugar_nacimiento.x0}}</td>
-          <td scope="row" >{{this.information_cedulas.lugar_nacimiento.x1}}</td>
-          <td scope="row" >{{this.information_cedulas.lugar_nacimiento.y0}}</td>
-          <td scope="row" >{{this.information_cedulas.lugar_nacimiento.y1}}</td>
         </tr>
         <tr>
-          <td scope="row" > </td>
+          <td scope="row" > {{this.llaves[4]}}</td>
           <td scope="row" >{{this.information_cedulas.fecha_nacimiento.text_ocr}}</td>
-          <td scope="row" >{{this.information_cedulas.fecha_nacimiento.x0}}</td>
-          <td scope="row" >{{this.information_cedulas.fecha_nacimiento.x1}}</td>
-          <td scope="row" >{{this.information_cedulas.fecha_nacimiento.y0}}</td>
-          <td scope="row" >{{this.information_cedulas.fecha_nacimiento.y1}}</td>
         </tr>
         <tr>
-          <td scope="row" > </td>
+          <td scope="row" > {{this.llaves[5]}}</td>
           <td scope="row" >{{this.information_cedulas.nacionalidad.text_ocr}}</td>
-          <td scope="row" >{{this.information_cedulas.nacionalidad.x0}}</td>
-          <td scope="row" >{{this.information_cedulas.nacionalidad.x1}}</td>
-          <td scope="row" >{{this.information_cedulas.nacionalidad.y0}}</td>
-          <td scope="row" >{{this.information_cedulas.nacionalidad.y1}}</td>
         </tr>
         <tr>
-          <td scope="row" > </td>
+          <td scope="row" > {{this.llaves[7]}}</td>
           <td scope="row" >{{this.information_cedulas.sexo.text_ocr}}</td>
-          <td scope="row" >{{this.information_cedulas.sexo.x0}}</td>
-          <td scope="row" >{{this.information_cedulas.sexo.x1}}</td>
-          <td scope="row" >{{this.information_cedulas.sexo.y0}}</td>
-          <td scope="row" >{{this.information_cedulas.sexo.y1}}</td>
         </tr>
         <tr>
-          <td scope="row" > </td>
+          <td scope="row" > {{this.llaves[1]}}</td>
           <td scope="row" >{{this.information_cedulas.estado_civil.text_ocr}}</td>
-          <td scope="row" >{{this.information_cedulas.estado_civil.x0}}</td>
-          <td scope="row" >{{this.information_cedulas.estado_civil.x1}}</td>
-          <td scope="row" >{{this.information_cedulas.estado_civil.y0}}</td>
-          <td scope="row" >{{this.information_cedulas.estado_civil.y1}}</td>
+        </tr>
+        <tr>
+          <td scope="row" > {{this.llaves[8]}}</td>
+          <td scope="row" >{{this.information_cedulas.fecha_expiracion.text_ocr}}</td>
         </tr>
       </tbody>
     </table>
