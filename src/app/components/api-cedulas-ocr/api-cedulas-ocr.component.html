@@ -44,36 +44,36 @@
             <th scope="col">Campos</th>
           </thead>
           <tbody>
-            <tr style="text-align: center;">
+            <tr *ngIf="this.obj.cedula.text_ocr != '' " style="text-align: center;">
               <td scope="row"> {{this.llaves[0]}} </td>
               <td scope="row"><input type="checkbox"></td>
             </tr>
-            <tr style="text-align: center;">
-              <td scope="row">{{this.llaves[1]}} </td>
-              <td scope="row"> <input type="checkbox"></td>
-            </tr>
-            <tr style="text-align: center;">
-              <td scope="row">{{this.llaves[2]}} </td>
-              <td scope="row"> <input type="checkbox"></td>
-            </tr>
-            <tr style="text-align: center;">
-              <td scope="row">{{this.llaves[3]}} </td>
-              <td scope="row"> <input type="checkbox"></td>
-            </tr>
-            <tr style="text-align: center;">
-              <td scope="row"> {{this.llaves[4]}} </td>
-              <td scope="row"> <input type="checkbox"></td>
-            </tr>
-            <tr style="text-align: center;">
-              <td scope="row">{{this.llaves[5]}} </td>
-              <td scope="row"> <input type="checkbox"></td>
-            </tr>
-            <tr style="text-align: center;">
+            <tr *ngIf="this.obj.nombres.text_ocr != '' " style="text-align: center;">
               <td scope="row">{{this.llaves[6]}} </td>
               <td scope="row"> <input type="checkbox"></td>
             </tr>
-            <tr style="text-align: center;">
+            <tr *ngIf="this.obj.lugar_nacimiento.text_ocr != '' " style="text-align: center;">
+              <td scope="row">{{this.llaves[3]}} </td>
+              <td scope="row"> <input type="checkbox"></td>
+            </tr>
+            <tr *ngIf="this.obj.fecha_nacimiento.text_ocr != '' " style="text-align: center;">
+              <td scope="row">{{this.llaves[4]}} </td>
+              <td scope="row"> <input type="checkbox"></td>
+            </tr>
+            <tr *ngIf="this.obj.nacionalidad.text_ocr != '' " style="text-align: center;">
+              <td scope="row"> {{this.llaves[5]}} </td>
+              <td scope="row"> <input type="checkbox"></td>
+            </tr>
+            <tr *ngIf="this.obj.sexo.text_ocr != '' " style="text-align: center;">
               <td scope="row">{{this.llaves[7]}} </td>
+              <td scope="row"> <input type="checkbox"></td>
+            </tr>
+            <tr *ngIf="this.obj.estado_civil.text_ocr != '' " style="text-align: center;">
+              <td scope="row">{{this.llaves[1]}} </td>
+              <td scope="row"> <input type="checkbox"></td>
+            </tr>
+            <tr *ngIf="this.obj.fecha_expiracion.text_ocr != '' " style="text-align: center;">
+              <td scope="row">{{this.llaves[8]}} </td>
               <td scope="row"> <input type="checkbox"></td>
             </tr>
           </tbody>
@@ -94,35 +94,35 @@
         </tr>
       </thead>
       <tbody class="post">
-        <tr>
+        <tr *ngIf="this.obj.cedula.text_ocr != '' ">
           <td scope="row"> {{this.llaves[0]}}</td>
           <td scope="row" >{{this.obj.cedula.text_ocr}}</td>
         </tr>
-        <tr>
+        <tr *ngIf="this.obj.nombres.text_ocr != '' ">
           <td scope="row" > {{this.llaves[6]}}</td>
           <td scope="row" >{{this.information_cedulas.nombres.text_ocr}}</td>
         </tr>
-        <tr>
+        <tr *ngIf="this.obj.lugar_nacimiento.text_ocr != '' ">
           <td scope="row" > {{this.llaves[3]}}</td>
           <td scope="row" >{{this.obj.lugar_nacimiento.text_ocr}}</td>
         </tr>
-        <tr>
+        <tr *ngIf="this.obj.fecha_nacimiento.text_ocr != '' ">
           <td scope="row" > {{this.llaves[4]}}</td>
           <td scope="row" >{{this.obj.fecha_nacimiento.text_ocr}}</td>
         </tr>
-        <tr>
+        <tr *ngIf="this.obj.nacionalidad.text_ocr != '' ">
           <td scope="row" > {{this.llaves[5]}}</td>
           <td scope="row" >{{this.obj.nacionalidad.text_ocr}}</td>
         </tr>
-        <tr>
+        <tr *ngIf="this.obj.sexo.text_ocr != '' ">
           <td scope="row" > {{this.llaves[7]}}</td>
           <td scope="row" >{{this.obj.sexo.text_ocr}}</td>
         </tr>
-        <tr>
+        <tr *ngIf="this.obj.estado_civil.text_ocr != '' ">
           <td scope="row" > {{this.llaves[1]}}</td>
           <td scope="row" >{{this.obj.estado_civil.text_ocr}}</td>
         </tr>
-        <tr>
+        <tr *ngIf="this.obj.fecha_expiracion.text_ocr != '' ">
           <td scope="row" > {{this.llaves[8]}}</td>
           <td scope="row" >{{this.obj.fecha_expiracion.text_ocr}}</td>
         </tr>
