@@ -32,3 +32,9 @@ table{
     margin-top: 10px;
     border-radius: 10px;
 }
+
+button.icon{
+    margin-top: 10px;
+    width: 100px;
+    height: auto;
+}
