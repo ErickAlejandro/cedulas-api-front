@@ -12,6 +12,8 @@ img{
     margin: auto;
     margin-top: 10px;
     margin-bottom: 20px;
+    border: 1px;
+    border-radius: 2rem;
 }
 
 h1{
