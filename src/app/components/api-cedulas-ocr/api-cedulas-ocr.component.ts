@@ -83,5 +83,5 @@ export class ApiCedulasOcrComponent implements OnInit {
       console.log('ERROR', e)
     }
   }
-  
+
 }

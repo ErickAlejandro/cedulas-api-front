@@ -21,9 +21,10 @@
     <div class="card shadow col-8 p-3 mb-5 bg-body rounded" style="width: 35rem;">
       <h5 class="card-title text-center ">Cedula de Identidad</h5>
       <!-- PREVISTA DE LA IMAGEN -->
-      <div *ngIf="preview">
-        <img width="515px" [src]="preview" alt="Imagen de la cedula">
-      </div>
+        <div *ngIf="preview">
+          <img width="515px" [src]="preview" alt="Imagen de la cedula">
+          <canvas id="micanvas" width="515" height="auto"></canvas>
+        </div>
       <div>
         <p class="card-text text-center"> Agregar una imagen de alguna cedula de identidad Ecuatoriana, puede ser tanto la
           parte frontal como la trasera de este documento.</p>
@@ -90,6 +91,8 @@
             <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
           </svg> Nueva Cedula</button></a>
         </table>
+
+        <canvas id="micanvas"></canvas>
       </div>
     </div>
 </div>
