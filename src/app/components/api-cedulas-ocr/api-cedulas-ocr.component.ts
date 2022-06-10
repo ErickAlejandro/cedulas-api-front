@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { DomSanitizer } from '@angular/platform-browser';
-import { Data } from 'src/app/models/data';
 import { Information_cedulas } from 'src/app/models/information_cedulas';
 import { APICedulasService } from 'src/app/service/api-cedulas.service';
 
@@ -17,6 +16,16 @@ export class ApiCedulasOcrComponent implements OnInit {
   public loading!: boolean;
   public information_cedulas: Information_cedulas = new Information_cedulas();
   obj: any = [];
+
+  element!: any;
+  size!: any
+  canvas!: any;
+  ctx!: any;
+  img!: any;
+  height: number = 0;
+  method!: any;
+
+  canv_img: boolean = false;
 
   llaves = Object.keys(this.information_cedulas)
 
@@ -76,12 +85,36 @@ export class ApiCedulasOcrComponent implements OnInit {
           Object.assign(this.information_cedulas, this.obj)
 
           console.log('Respuesta del servidor: ', this.obj = this.information_cedulas);
+          this.drawImg();
+          this.canv_img = true;
           return this.obj
         })
     } catch (e) {
       this.loading = false;
       console.log('ERROR', e)
     }
+  }
+
+  // METODOS PARA DIBUJAR LA IMAGEN Y LA FIGURA
+  drawImg() {
+
+    this.element = document.getElementById('imageDraw');
+    this.canvas = document.getElementById('canvas')
+
+    this.size = this.element.getBoundingClientRect();
+    this.height = this.size.height
+
+    // dibujar Image
+    this.img = new Image();
+    this.img.src = this.preview;
+
+    this.ctx = this.canvas.getContext('2d');
+    this.ctx.drawImage(this.img, 0, 0, this.size.width, this.size.height);
+
+    console.log('Tamanio de la imagen ' + this.size.height)
+
+
+
   }
 
 }

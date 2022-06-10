@@ -11,6 +11,7 @@ export class Information_cedulas {
   sexo: Data
   fecha_expiracion: Data
   huella_digital: Data
+  firma:Data
 
   constructor(){
     this.cedula = new Data;
@@ -23,5 +24,6 @@ export class Information_cedulas {
     this.sexo = new Data;
     this.fecha_expiracion = new Data;
     this.huella_digital = new Data;
+    this.firma = new Data;
   }
 }
