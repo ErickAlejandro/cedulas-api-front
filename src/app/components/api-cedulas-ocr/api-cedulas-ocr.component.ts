@@ -85,7 +85,7 @@ export class ApiCedulasOcrComponent implements OnInit {
           Object.assign(this.information_cedulas, this.obj)
 
           console.log('Respuesta del servidor: ', this.obj = this.information_cedulas);
-          this.drawImg();
+          this.img_canvas()
           this.canv_img = true;
           return this.obj
         })
@@ -95,26 +95,13 @@ export class ApiCedulasOcrComponent implements OnInit {
     }
   }
 
-  // METODOS PARA DIBUJAR LA IMAGEN Y LA FIGURA
-  drawImg() {
+  // DIBUJAR UNA IMAGEN
+  img_canvas(){
+    this.canvas = document.getElementById('micanvas');
+    this.ctx = this.canvas.getContext("2d");
+    this.img = new Image()
+    this.img.src = this.preview
 
-    this.element = document.getElementById('imageDraw');
-    this.canvas = document.getElementById('canvas')
-
-    this.size = this.element.getBoundingClientRect();
-    this.height = this.size.height
-
-    // dibujar Image
-    this.img = new Image();
-    this.img.src = this.preview;
-
-    this.ctx = this.canvas.getContext('2d');
-    this.ctx.drawImage(this.img, 0, 0, this.size.width, this.size.height);
-
-    console.log('Tamanio de la imagen ' + this.size.height)
-
-
-
+    this.ctx.drawImage(this.img, 0, 0, this.information_cedulas.cedula.ancho, this.information_cedulas.cedula.alto)
   }
-
 }

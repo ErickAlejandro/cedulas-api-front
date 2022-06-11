@@ -29,6 +29,7 @@ button{
     border: 1px solid;
     box-shadow: 1px;
     border-radius: 3px;
+    bottom: 50%;
 }
 
 table{

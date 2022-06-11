@@ -4,6 +4,8 @@ export class Data {
     x1: number
     y0: number
     y1: number
+    ancho: number
+    alto: number
 
     constructor(){
         this.text_ocr = ''
@@ -11,6 +13,8 @@ export class Data {
         this.x0 = 0
         this.y0 = 0
         this.y1 = 0 
+        this.ancho = 0
+        this.alto = 0
     }
 }
 
