@@ -109,6 +109,6 @@ export class ApiCedulasOcrComponent implements OnInit {
     this.img = new Image()
     this.img.src = this.preview
 
-    this.ctx.drawImage(this.img, 0, 0, this.information_img.width, this.information_img.height)
+    this.ctx.drawImage(this.img, 1, 1, this.information_img.width, this.information_img.height)
   }
 }

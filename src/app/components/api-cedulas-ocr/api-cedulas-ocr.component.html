@@ -25,7 +25,7 @@
         <img id="imageDraw" width="900px" height="auto" [src]="preview" alt="Imagen de la cedula">
       </div>
       <div id="div_canvas" align="center">
-        <canvas id="micanvas"></canvas>
+        <canvas id="micanvas" [width]="this.information_img.width" [height]="this.information_img.height" ></canvas>
       </div>
       <div>
         <p class="card-text text-center"> Agregar una imagen de alguna cedula de identidad Ecuatoriana, puede ser tanto
