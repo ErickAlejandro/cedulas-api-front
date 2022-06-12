@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { DomSanitizer } from '@angular/platform-browser';
 import { Information_cedulas } from 'src/app/models/information_cedulas';
+import { Information_img } from 'src/app/models/information_img';
 import { APICedulasService } from 'src/app/service/api-cedulas.service';
 
 @Component({
@@ -15,7 +16,10 @@ export class ApiCedulasOcrComponent implements OnInit {
   public preview!: string;
   public loading!: boolean;
   public information_cedulas: Information_cedulas = new Information_cedulas();
+  public information_img: Information_img = new Information_img();
+
   obj: any = [];
+  obj2: any = [];
 
   element!: any;
   size!: any
@@ -81,10 +85,13 @@ export class ApiCedulasOcrComponent implements OnInit {
         .subscribe((res: any) => {
           this.loading = false;
           const myObj = JSON.stringify(res.information_cedulas)
+          const otherObj = JSON.stringify(res.information_img)
           this.obj = JSON.parse(myObj);
+          this.obj2 = JSON.parse(otherObj);
           Object.assign(this.information_cedulas, this.obj)
+          Object.assign(this.information_img, this.obj2)
 
-          console.log('Respuesta del servidor: ', this.obj = this.information_cedulas);
+          console.log('Respuesta del servidor: ', this.obj = this.information_cedulas, 'Dimensiones: ' , this.obj2 = this.information_img);
           this.img_canvas()
           this.canv_img = true;
           return this.obj
@@ -102,6 +109,6 @@ export class ApiCedulasOcrComponent implements OnInit {
     this.img = new Image()
     this.img.src = this.preview
 
-    this.ctx.drawImage(this.img, 0, 0, this.information_cedulas.cedula.ancho, this.information_cedulas.cedula.alto)
+    this.ctx.drawImage(this.img, 0, 0, this.information_img.width, this.information_img.height)
   }
 }
