@@ -27,6 +27,7 @@ export class ApiCedulasOcrComponent implements OnInit {
   ctx!: any;
   img!: any;
   height: number = 0;
+  width: number = 0;
   method!: any;
 
   canv_img: boolean = false;
@@ -93,6 +94,7 @@ export class ApiCedulasOcrComponent implements OnInit {
 
           console.log('Respuesta del servidor: ', this.obj = this.information_cedulas, 'Dimensiones: ' , this.obj2 = this.information_img);
           this.img_canvas()
+          window.onload = this.img_canvas    
           this.canv_img = true;
           return this.obj
         })
@@ -108,7 +110,12 @@ export class ApiCedulasOcrComponent implements OnInit {
     this.ctx = this.canvas.getContext("2d");
     this.img = new Image()
     this.img.src = this.preview
+    
+    this.height = this.information_img.height
+    this.width = this.information_img.width
 
-    this.ctx.drawImage(this.img, 1, 1, this.information_img.width, this.information_img.height)
+    this.ctx.drawImage(this.img, 1, 1, this.width, this.height)
+
+    return this.width, this.height
   }
 }

@@ -18,14 +18,14 @@
 </ng-container>
 <div class="container">
   <div class="row">
-    <div class="card shadow col-8 p-3 mb-5 bg-body rounded" style="width: auto;">
+    <div class="card shadow col-6 p-3 mb-5 bg-body rounded" style="width: auto;">
       <h5 class="card-title text-center ">Cedula de Identidad</h5>
       <!-- PREVISTA DE LA IMAGEN -->
       <div id="div_img" align="center" *ngIf="preview && !this.canv_img">
-        <img id="imageDraw" width="900px" height="auto" [src]="preview" alt="Imagen de la cedula">
+        <img id="imageDraw" width="1000px" height="auto" [src]="preview" alt="Imagen de la cedula">
       </div>
       <div id="div_canvas" align="center">
-        <canvas id="micanvas" [width]="this.information_img.width" [height]="this.information_img.height" ></canvas>
+        <canvas id="micanvas" [width]="this.width" [height]="this.height" ></canvas>
       </div>
       <div>
         <p class="card-text text-center"> Agregar una imagen de alguna cedula de identidad Ecuatoriana, puede ser tanto
@@ -41,7 +41,7 @@
         </div>
       </div>
     </div>
-    <div class="card shadow col-3 p-3 mb-5 bg-body rounded" style="width: 25rem;height: auto;" *ngIf="loading == false">
+    <div class="card shadow col-5 p-3 mb-5 bg-body rounded" style="width: 25rem;height: auto;" *ngIf="loading == false">
       <h5 class="card-title text-center">Lista de campos de una cedula</h5>
       <table>
         <thead style="text-align: justify;">
