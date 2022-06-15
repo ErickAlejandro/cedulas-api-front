@@ -136,7 +136,7 @@ export class ApiCedulasOcrComponent implements OnInit {
     this.draw_height = (this.information_cedulas.cedula.y1 - this.information_cedulas.cedula.y0)
 
     if (this.check.checked == true) {
-      this.ctx.strokeStyle = '#318F5A';
+      this.ctx.strokeStyle = '#FF0000';
       this.ctx.lineWidth = 4;
       this.ctx.strokeRect(this.information_cedulas.cedula.x0,this.information_cedulas.cedula.y0, this.draw_width, this.draw_height);
     } else {
@@ -154,7 +154,7 @@ export class ApiCedulasOcrComponent implements OnInit {
     this.draw_height = (this.information_cedulas.nombres.y1 - this.information_cedulas.nombres.y0)
 
     if (this.check.checked == true) {
-      this.ctx.strokeStyle = '#318F5A';
+      this.ctx.strokeStyle = '#FFFF00';
       this.ctx.lineWidth = 4;
       this.ctx.strokeRect(this.information_cedulas.nombres.x0,this.information_cedulas.nombres.y0, this.draw_width, this.draw_height);
     } else {
@@ -172,7 +172,7 @@ export class ApiCedulasOcrComponent implements OnInit {
     this.draw_height = (this.information_cedulas.lugar_nacimiento.y1 - this.information_cedulas.lugar_nacimiento.y0)
 
     if (this.check.checked == true) {
-      this.ctx.strokeStyle = '#318F5A';
+      this.ctx.strokeStyle = '#808000';
       this.ctx.lineWidth = 4;
       this.ctx.strokeRect(this.information_cedulas.lugar_nacimiento.x0,this.information_cedulas.lugar_nacimiento.y0, this.draw_width, this.draw_height);
     } else {
@@ -190,7 +190,7 @@ export class ApiCedulasOcrComponent implements OnInit {
     this.draw_height = (this.information_cedulas.fecha_nacimiento.y1 - this.information_cedulas.fecha_nacimiento.y0)
 
     if (this.check.checked == true) {
-      this.ctx.strokeStyle = '#318F5A';
+      this.ctx.strokeStyle = '#008000';
       this.ctx.lineWidth = 4;
       this.ctx.strokeRect(this.information_cedulas.fecha_nacimiento.x0,this.information_cedulas.fecha_nacimiento.y0, this.draw_width, this.draw_height);
     } else {
@@ -208,7 +208,7 @@ export class ApiCedulasOcrComponent implements OnInit {
     this.draw_height = (this.information_cedulas.nacionalidad.y1 - this.information_cedulas.nacionalidad.y0)
 
     if (this.check.checked == true) {
-      this.ctx.strokeStyle = '#318F5A';
+      this.ctx.strokeStyle = '#00FFFF';
       this.ctx.lineWidth = 4;
       this.ctx.strokeRect(this.information_cedulas.nacionalidad.x0,this.information_cedulas.nacionalidad.y0, this.draw_width, this.draw_height);
     } else {
@@ -226,7 +226,7 @@ export class ApiCedulasOcrComponent implements OnInit {
     this.draw_height = (this.information_cedulas.sexo.y1 - this.information_cedulas.sexo.y0)
 
     if (this.check.checked == true) {
-      this.ctx.strokeStyle = '#318F5A';
+      this.ctx.strokeStyle = '#008080';
       this.ctx.lineWidth = 4;
       this.ctx.strokeRect(this.information_cedulas.sexo.x0,this.information_cedulas.sexo.y0, this.draw_width, this.draw_height);
     } else {
@@ -244,7 +244,7 @@ export class ApiCedulasOcrComponent implements OnInit {
     this.draw_height = (this.information_cedulas.estado_civil.y1 - this.information_cedulas.estado_civil.y0)
 
     if (this.check.checked == true) {
-      this.ctx.strokeStyle = '#318F5A';
+      this.ctx.strokeStyle = '#0000FF';
       this.ctx.lineWidth = 4;
       this.ctx.strokeRect(this.information_cedulas.estado_civil.x0,this.information_cedulas.estado_civil.y0, this.draw_width, this.draw_height);
     } else {
@@ -262,7 +262,7 @@ export class ApiCedulasOcrComponent implements OnInit {
     this.draw_height = (this.information_cedulas.foto.y1 - this.information_cedulas.foto.y0)
 
     if (this.check.checked == true) {
-      this.ctx.strokeStyle = '#318F5A';
+      this.ctx.strokeStyle = '#800080';
       this.ctx.lineWidth = 4;
       this.ctx.strokeRect(this.information_cedulas.foto.x0,this.information_cedulas.foto.y0, this.draw_width, this.draw_height);
     } else {
@@ -280,7 +280,7 @@ export class ApiCedulasOcrComponent implements OnInit {
     this.draw_height = (this.information_cedulas.fecha_expiracion.y1 - this.information_cedulas.fecha_expiracion.y0)
 
     if (this.check.checked == true) {
-      this.ctx.strokeStyle = '#318F5A';
+      this.ctx.strokeStyle = '#A8366A';
       this.ctx.lineWidth = 4;
       this.ctx.strokeRect(this.information_cedulas.fecha_expiracion.x0,this.information_cedulas.fecha_expiracion.y0, this.draw_width, this.draw_height);
     } else {
@@ -298,7 +298,7 @@ export class ApiCedulasOcrComponent implements OnInit {
     this.draw_height = (this.information_cedulas.huella_digital.y1 - this.information_cedulas.huella_digital.y0)
 
     if (this.check.checked == true) {
-      this.ctx.strokeStyle = '#318F5A';
+      this.ctx.strokeStyle = '#40F3FF';
       this.ctx.lineWidth = 4;
       this.ctx.strokeRect(this.information_cedulas.huella_digital.x0,this.information_cedulas.huella_digital.y0, this.draw_width, this.draw_height);
     } else {
@@ -316,7 +316,7 @@ export class ApiCedulasOcrComponent implements OnInit {
     this.draw_height = (this.information_cedulas.firma.y1 - this.information_cedulas.firma.y0)
 
     if (this.check.checked == true) {
-      this.ctx.strokeStyle = '#318F5A';
+      this.ctx.strokeStyle = '#FF8F00';
       this.ctx.lineWidth = 4;
       this.ctx.strokeRect(this.information_cedulas.firma.x0,this.information_cedulas.firma.y0, this.draw_width, this.draw_height);
     } else {
