@@ -1,5 +1,4 @@
-
-.card{
+.card {
     padding: 10px;
     border-radius: 1rem;
     margin: auto;
@@ -8,7 +7,7 @@
     width: 500px;
 }
 
-img{
+img {
     margin: auto;
     margin-top: 10px;
     margin-bottom: 20px;
@@ -17,28 +16,38 @@ img{
     box-shadow: 1px;
 }
 
-h1{
+h1 {
     margin-top: 30px;
 }
 
-button{
-    margin: -20px -50px; 
-    position:relative;
-    top:50%; 
-    left:50%;
+button {
+    margin: -20px -50px;
+    position: relative;
+    top: 50%;
+    left: 50%;
     border: 1px solid;
     box-shadow: 1px;
     border-radius: 3px;
     bottom: 50%;
 }
 
-table{
+table {
     margin-top: 10px;
     border-radius: 10px;
 }
 
-button.icon{
+button.icon {
     margin-top: 10px;
     width: 100px;
     height: auto;
+}
+
+.padre {
+    position: relative;
+    
+}
+
+.hijo {
+    position: absolute;
+    top: 60;
 }
