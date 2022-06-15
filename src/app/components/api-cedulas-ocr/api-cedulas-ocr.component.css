@@ -51,3 +51,7 @@ button.icon {
     position: absolute;
     top: 60;
 }
+
+canvas{
+    border-radius: 1rem;
+}

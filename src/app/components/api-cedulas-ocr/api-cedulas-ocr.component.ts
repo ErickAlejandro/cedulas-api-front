@@ -32,6 +32,11 @@ export class ApiCedulasOcrComponent implements OnInit {
 
   canv_img: boolean = false;
 
+  draw_width: any;
+  draw_height: any;
+  check: any;
+  dra_img: boolean = false;
+
   llaves = Object.keys(this.information_cedulas)
 
   constructor(private sanitizer: DomSanitizer, private rest: APICedulasService) { }
@@ -117,6 +122,17 @@ export class ApiCedulasOcrComponent implements OnInit {
     this.canvas.setAttribute('height', this.height);
 
     this.ctx.drawImage(this.img, 0, 0, this.width, this.height)
+
+    // DIBUJAR CUADROS
+
+    this.check = document.getElementById('check_cedula')
+    this.draw_width = (this.information_img.width + this.information_cedulas.cedula.x1)
+    this.draw_height = (this.information_img.height + this.information_cedulas.cedula.y1)
+
+    if (!this.check){
+      this.ctx.strokeRect(this.information_cedulas.cedula.x0,this.information_cedulas.cedula.y0, this.draw_width, this.draw_height);
+    }
+
 
   }
 }
