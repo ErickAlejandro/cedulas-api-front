@@ -53,47 +53,47 @@
         <tbody>
           <tr *ngIf="this.obj.cedula.text_ocr != '' " style="text-align: center;">
             <td scope="row"> {{this.llaves[0]}} </td>
-            <td scope="row"><input type="checkbox" id="check_cedula" value="false"></td>
+            <td scope="row"><input type="checkbox"  class="form-check-input" id="check_cedula"  (click)="draw_cedula()" value="false"></td>
           </tr>
           <tr *ngIf="this.obj.nombres.text_ocr != '' " style="text-align: center;">
             <td scope="row">{{this.llaves[6]}} </td>
-            <td scope="row"> <input type="checkbox"></td>
+            <td scope="row"> <input type="checkbox" class="form-check-input" id="check_nombres"  (click)="draw_nombre()" value="false"></td>
           </tr>
           <tr *ngIf="this.obj.lugar_nacimiento.text_ocr != '' " style="text-align: center;">
             <td scope="row">{{this.llaves[3]}} </td>
-            <td scope="row"> <input type="checkbox"></td>
+            <td scope="row"> <input type="checkbox" class="form-check-input" id="check_lugar_nacimiento"  (click)="draw_lugar_nacimiento()" value="false"></td>
           </tr>
           <tr *ngIf="this.obj.fecha_nacimiento.text_ocr != '' " style="text-align: center;">
             <td scope="row">{{this.llaves[4]}} </td>
-            <td scope="row"> <input type="checkbox"></td>
+            <td scope="row"> <input type="checkbox" class="form-check-input" id="check_fecha_nacimiento"  (click)="draw_fecha_nacimiento()" value="false"></td>
           </tr>
           <tr *ngIf="this.obj.nacionalidad.text_ocr != '' " style="text-align: center;">
             <td scope="row"> {{this.llaves[5]}} </td>
-            <td scope="row"> <input type="checkbox"></td>
+            <td scope="row"> <input type="checkbox" class="form-check-input" id="check_nacionalidad"  (click)="draw_nacionalidad()" value="false"></td>
           </tr>
           <tr *ngIf="this.obj.sexo.text_ocr != '' " style="text-align: center;">
             <td scope="row">{{this.llaves[7]}} </td>
-            <td scope="row"> <input type="checkbox"></td>
+            <td scope="row"> <input type="checkbox" class="form-check-input" id="check_sexo"  (click)="draw_sexo()" value="false"></td>
           </tr>
           <tr *ngIf="this.obj.estado_civil.text_ocr != '' " style="text-align: center;">
             <td scope="row">{{this.llaves[1]}} </td>
-            <td scope="row"> <input type="checkbox"></td>
+            <td scope="row"> <input type="checkbox" class="form-check-input" id="check_estado_civil"  (click)="draw_estado_civil()" value="false"></td>
           </tr>
           <tr *ngIf="this.obj.fecha_expiracion.text_ocr != '' " style="text-align: center;">
             <td scope="row">{{this.llaves[8]}} </td>
-            <td scope="row"> <input type="checkbox"></td>
+            <td scope="row"> <input type="checkbox" class="form-check-input" id="check_fecha_expiracion" (click)="draw_fecha_expiracion()" value="false" ></td>
           </tr>
           <tr *ngIf="this.obj.huella_digital.text_ocr != '' " style="text-align: center;">
             <td scope="row">{{this.llaves[9]}} </td>
-            <td scope="row"> <input type="checkbox"></td>
+            <td scope="row"> <input type="checkbox" class="form-check-input" id="check_huella_digital" (click)="draw_huella_digital()" value="false"></td>
           </tr>
           <tr *ngIf="this.obj.foto.text_ocr!= '' " style="text-align: center;">
             <td scope="row">{{this.llaves[2]}} </td>
-            <td scope="row"> <input type="checkbox"></td>
+            <td scope="row"> <input type="checkbox" class="form-check-input" id="check_foto" (click)="draw_foto()" value="false"></td>
           </tr>
           <tr *ngIf="this.obj.firma.text_ocr!= '' " style="text-align: center;">
             <td scope="row">{{this.llaves[10]}} </td>
-            <td scope="row"> <input type="checkbox"></td>
+            <td scope="row"> <input type="checkbox" class="form-check-input" id="check_firma" (click)="draw_firma()" value="false"></td>
           </tr>
         </tbody>
       </table>

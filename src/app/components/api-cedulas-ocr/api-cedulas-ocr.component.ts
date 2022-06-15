@@ -123,16 +123,204 @@ export class ApiCedulasOcrComponent implements OnInit {
 
     this.ctx.drawImage(this.img, 0, 0, this.width, this.height)
 
-    // DIBUJAR CUADROS
+  }
+  // DIBUJAR CUADROS
 
+  draw_cedula(){
+    this.canvas = document.getElementById('micanvas');
+    this.ctx = this.canvas.getContext("2d");
+    
     this.check = document.getElementById('check_cedula')
-    this.draw_width = (this.information_img.width + this.information_cedulas.cedula.x1)
-    this.draw_height = (this.information_img.height + this.information_cedulas.cedula.y1)
+    !this.check
+    this.draw_width = (this.information_cedulas.cedula.x1 - this.information_cedulas.cedula.x0)
+    this.draw_height = (this.information_cedulas.cedula.y1 - this.information_cedulas.cedula.y0)
 
-    if (!this.check){
+    if (this.check.checked == true) {
+      this.ctx.strokeStyle = '#318F5A';
+      this.ctx.lineWidth = 4;
       this.ctx.strokeRect(this.information_cedulas.cedula.x0,this.information_cedulas.cedula.y0, this.draw_width, this.draw_height);
+    } else {
+      this.img_canvas();
     }
+  }
 
+  draw_nombre(){
+    this.canvas = document.getElementById('micanvas');
+    this.ctx = this.canvas.getContext("2d");
+    
+    this.check = document.getElementById('check_nombres')
+    !this.check
+    this.draw_width = (this.information_cedulas.nombres.x1 - this.information_cedulas.nombres.x0)
+    this.draw_height = (this.information_cedulas.nombres.y1 - this.information_cedulas.nombres.y0)
 
+    if (this.check.checked == true) {
+      this.ctx.strokeStyle = '#318F5A';
+      this.ctx.lineWidth = 4;
+      this.ctx.strokeRect(this.information_cedulas.nombres.x0,this.information_cedulas.nombres.y0, this.draw_width, this.draw_height);
+    } else {
+      this.img_canvas();
+    }
+  }
+
+  draw_lugar_nacimiento(){
+    this.canvas = document.getElementById('micanvas');
+    this.ctx = this.canvas.getContext("2d");
+    
+    this.check = document.getElementById('check_lugar_nacimiento')
+    !this.check
+    this.draw_width = (this.information_cedulas.lugar_nacimiento.x1 - this.information_cedulas.lugar_nacimiento.x0)
+    this.draw_height = (this.information_cedulas.lugar_nacimiento.y1 - this.information_cedulas.lugar_nacimiento.y0)
+
+    if (this.check.checked == true) {
+      this.ctx.strokeStyle = '#318F5A';
+      this.ctx.lineWidth = 4;
+      this.ctx.strokeRect(this.information_cedulas.lugar_nacimiento.x0,this.information_cedulas.lugar_nacimiento.y0, this.draw_width, this.draw_height);
+    } else {
+      this.img_canvas();
+    }
+  }
+
+  draw_fecha_nacimiento(){
+    this.canvas = document.getElementById('micanvas');
+    this.ctx = this.canvas.getContext("2d");
+    
+    this.check = document.getElementById('check_fecha_nacimiento')
+    !this.check
+    this.draw_width = (this.information_cedulas.fecha_nacimiento.x1 - this.information_cedulas.fecha_nacimiento.x0)
+    this.draw_height = (this.information_cedulas.fecha_nacimiento.y1 - this.information_cedulas.fecha_nacimiento.y0)
+
+    if (this.check.checked == true) {
+      this.ctx.strokeStyle = '#318F5A';
+      this.ctx.lineWidth = 4;
+      this.ctx.strokeRect(this.information_cedulas.fecha_nacimiento.x0,this.information_cedulas.fecha_nacimiento.y0, this.draw_width, this.draw_height);
+    } else {
+      this.img_canvas();
+    }
+  }
+
+  draw_nacionalidad(){
+    this.canvas = document.getElementById('micanvas');
+    this.ctx = this.canvas.getContext("2d");
+    
+    this.check = document.getElementById('check_nacionalidad')
+    !this.check
+    this.draw_width = (this.information_cedulas.nacionalidad.x1 - this.information_cedulas.nacionalidad.x0)
+    this.draw_height = (this.information_cedulas.nacionalidad.y1 - this.information_cedulas.nacionalidad.y0)
+
+    if (this.check.checked == true) {
+      this.ctx.strokeStyle = '#318F5A';
+      this.ctx.lineWidth = 4;
+      this.ctx.strokeRect(this.information_cedulas.nacionalidad.x0,this.information_cedulas.nacionalidad.y0, this.draw_width, this.draw_height);
+    } else {
+      this.img_canvas();
+    }
+  }
+
+  draw_sexo(){
+    this.canvas = document.getElementById('micanvas');
+    this.ctx = this.canvas.getContext("2d");
+    
+    this.check = document.getElementById('check_sexo')
+    !this.check
+    this.draw_width = (this.information_cedulas.sexo.x1 - this.information_cedulas.sexo.x0)
+    this.draw_height = (this.information_cedulas.sexo.y1 - this.information_cedulas.sexo.y0)
+
+    if (this.check.checked == true) {
+      this.ctx.strokeStyle = '#318F5A';
+      this.ctx.lineWidth = 4;
+      this.ctx.strokeRect(this.information_cedulas.sexo.x0,this.information_cedulas.sexo.y0, this.draw_width, this.draw_height);
+    } else {
+      this.img_canvas();
+    }
+  }
+
+  draw_estado_civil(){
+    this.canvas = document.getElementById('micanvas');
+    this.ctx = this.canvas.getContext("2d");
+    
+    this.check = document.getElementById('check_estado_civil')
+    !this.check
+    this.draw_width = (this.information_cedulas.estado_civil.x1 - this.information_cedulas.estado_civil.x0)
+    this.draw_height = (this.information_cedulas.estado_civil.y1 - this.information_cedulas.estado_civil.y0)
+
+    if (this.check.checked == true) {
+      this.ctx.strokeStyle = '#318F5A';
+      this.ctx.lineWidth = 4;
+      this.ctx.strokeRect(this.information_cedulas.estado_civil.x0,this.information_cedulas.estado_civil.y0, this.draw_width, this.draw_height);
+    } else {
+      this.img_canvas();
+    }
+  }
+
+  draw_foto(){
+    this.canvas = document.getElementById('micanvas');
+    this.ctx = this.canvas.getContext("2d");
+    
+    this.check = document.getElementById('check_foto')
+    !this.check
+    this.draw_width = (this.information_cedulas.foto.x1 - this.information_cedulas.foto.x0)
+    this.draw_height = (this.information_cedulas.foto.y1 - this.information_cedulas.foto.y0)
+
+    if (this.check.checked == true) {
+      this.ctx.strokeStyle = '#318F5A';
+      this.ctx.lineWidth = 4;
+      this.ctx.strokeRect(this.information_cedulas.foto.x0,this.information_cedulas.foto.y0, this.draw_width, this.draw_height);
+    } else {
+      this.img_canvas();
+    }
+  }
+
+  draw_fecha_expiracion(){
+    this.canvas = document.getElementById('micanvas');
+    this.ctx = this.canvas.getContext("2d");
+    
+    this.check = document.getElementById('check_fecha_expiracion')
+    !this.check
+    this.draw_width = (this.information_cedulas.fecha_expiracion.x1 - this.information_cedulas.fecha_expiracion.x0)
+    this.draw_height = (this.information_cedulas.fecha_expiracion.y1 - this.information_cedulas.fecha_expiracion.y0)
+
+    if (this.check.checked == true) {
+      this.ctx.strokeStyle = '#318F5A';
+      this.ctx.lineWidth = 4;
+      this.ctx.strokeRect(this.information_cedulas.fecha_expiracion.x0,this.information_cedulas.fecha_expiracion.y0, this.draw_width, this.draw_height);
+    } else {
+      this.img_canvas();
+    }
+  }
+
+  draw_huella_digital(){
+    this.canvas = document.getElementById('micanvas');
+    this.ctx = this.canvas.getContext("2d");
+    
+    this.check = document.getElementById('check_huella_digital')
+    !this.check
+    this.draw_width = (this.information_cedulas.huella_digital.x1 - this.information_cedulas.huella_digital.x0)
+    this.draw_height = (this.information_cedulas.huella_digital.y1 - this.information_cedulas.huella_digital.y0)
+
+    if (this.check.checked == true) {
+      this.ctx.strokeStyle = '#318F5A';
+      this.ctx.lineWidth = 4;
+      this.ctx.strokeRect(this.information_cedulas.huella_digital.x0,this.information_cedulas.huella_digital.y0, this.draw_width, this.draw_height);
+    } else {
+      this.img_canvas();
+    }
+  }
+
+  draw_firma(){
+    this.canvas = document.getElementById('micanvas');
+    this.ctx = this.canvas.getContext("2d");
+    
+    this.check = document.getElementById('check_firma')
+    !this.check
+    this.draw_width = (this.information_cedulas.firma.x1 - this.information_cedulas.firma.x0)
+    this.draw_height = (this.information_cedulas.firma.y1 - this.information_cedulas.firma.y0)
+
+    if (this.check.checked == true) {
+      this.ctx.strokeStyle = '#318F5A';
+      this.ctx.lineWidth = 4;
+      this.ctx.strokeRect(this.information_cedulas.firma.x0,this.information_cedulas.firma.y0, this.draw_width, this.draw_height);
+    } else {
+      this.img_canvas();
+    }
   }
 }
