@@ -55,3 +55,7 @@ button.icon {
 canvas{
     border-radius: 1rem;
 }
+
+#campos{
+    padding: 35px;
+}

@@ -16,17 +16,13 @@
     </h6>
   </div>
 </ng-container>
-<div class="container">
   <div class="row">
-    <div class="card shadow col-6 p-3 mb-5 bg-body rounded" style="width: auto;">
+    <div class="card shadow col-8 p-3 mb-5 bg-body rounded" style="width: auto;">
       <h5 class="card-title text-center ">Cedula de Identidad</h5>
       <!-- PREVISTA DE LA IMAGEN -->
       <div id="div_img" align="center" *ngIf="preview && !this.canv_img">
         <img id="imageDraw" width="1000px" height="auto" [src]="preview" alt="Imagen de la cedula">
       </div>
-      <!-- <div id="div_img_hide" align="center" *ngIf="preview && this.canv_img">
-        <img id="imageDraw" [width]="this.information_img.width" [height]="this.information_img.height"  [src]="preview" alt="Imagen de la cedula">
-      </div> -->
       <div id="div_canvas" align="center" *ngIf="preview">
         <canvas id="micanvas"></canvas>
       </div>
@@ -44,11 +40,11 @@
         </div>
       </div>
     </div>
-    <div class="card shadow col-5 p-3 mb-5 bg-body rounded" style="width: 25rem;height: auto;" *ngIf="loading == false">
+    <div id="campos" class="card shadow col-4 bg-body rounded" *ngIf="loading == false">
       <h5 class="card-title text-center">Lista de campos de una cedula</h5>
       <table>
         <thead style="text-align: justify;">
-          <th scope="col">Campos</th>
+          <th scope="col">CAMPOS</th>
         </thead>
         <tbody>
           <tr *ngIf="this.obj.cedula.text_ocr != '' " style="text-align: center;">
@@ -97,7 +93,7 @@
           </tr>
         </tbody>
       </table>
-      <a style="margin-bottom: 10%;" href="http://localhost:4200/api-cedulas-ocr"><button class="icon"><svg xmlns="http://www.w3.org/2000/svg"
+      <a style="margin-bottom: 10%;" href="http://localhost:4200/api-cedulas-ocr"><button id="buttonInfo" class="icon"><svg xmlns="http://www.w3.org/2000/svg"
             width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
             <path
@@ -105,10 +101,9 @@
           </svg></button></a>
     </div>
   </div>
-</div>
 
 
-<div class="card shadow p-3 mb-5 bg-body rounded" *ngIf="loading == false" style="width: auto; margin: 15px;">
+<div class="card shadow p-3 mb-5 bg-body rounded" *ngIf="loading == false" style="width: auto; margin: 35px;">
   <h5 class="card-text text-center">Información de la cedula</h5>
 
   <table class="table table-dark">
