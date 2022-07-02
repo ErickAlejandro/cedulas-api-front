@@ -35,6 +35,20 @@ export class ApiCedulasOcrComponent implements OnInit {
   draw_width: any;
   draw_height: any;
   check: any;
+
+  check_cedula: any;
+  check_nombres: any;
+  check_lugar_nacimiento: any;
+  check_fecha_nacimiento: any;
+  check_nacionalidad: any;
+  check_sexo: any;
+  check_estado_civil: any;
+  check_fecha_expiracion: any;
+  check_huella_digital: any;
+  check_foto: any;
+  check_firma: any;
+
+
   dra_img: boolean = false;
 
   llaves = Object.keys(this.information_cedulas)
@@ -124,8 +138,69 @@ export class ApiCedulasOcrComponent implements OnInit {
     this.ctx.drawImage(this.img, 0, 0, this.width, this.height)
 
   }
-  // DIBUJAR CUADROS
 
+  uncheck(){
+    this.img_canvas();
+    this.check_cedula = document.getElementById('check_cedula')
+    this.check_nombres = document.getElementById('check_nombres')
+    this.check_lugar_nacimiento = document.getElementById('check_lugar_nacimiento')
+    this.check_fecha_nacimiento = document.getElementById('check_fecha_nacimiento')
+    this.check_nacionalidad = document.getElementById('check_nacionalidad')
+    this.check_sexo = document.getElementById('check_sexo')
+    this.check_estado_civil = document.getElementById('check_estado_civil')
+    this.check_fecha_expiracion = document.getElementById('check_fecha_expiracion')
+    this.check_huella_digital = document.getElementById('check_huella_digital')
+    this.check_foto = document.getElementById('check_foto')
+    this.check_firma = document.getElementById('check_firma')
+
+
+    if(this.check_cedula != this.check_cedula.checked){
+      this.check_cedula.checked = false;
+    }
+
+    if(this.check_nombres != this.check_nombres.checked){
+      this.check_nombres.checked = false;
+    }
+
+    if(this.check_lugar_nacimiento != this.check_lugar_nacimiento.checked){
+      this.check_lugar_nacimiento.checked = false;
+    }
+    
+    if(this.check_fecha_nacimiento != this.check_fecha_nacimiento.checked){
+      this.check_fecha_nacimiento.checked = false;
+    }
+
+    if(this.check_nacionalidad != this.check_nacionalidad.checked){
+      this.check_nacionalidad.checked = false;
+    }
+
+    if(this.check_sexo != this.check_sexo.checked){
+      this.check_sexo.checked = false;
+    }
+
+    if(this.check_estado_civil != this.check_estado_civil.checked){
+      this.check_estado_civil.checked = false;
+    }
+
+    if(this.check_fecha_expiracion != this.check_fecha_expiracion.checked){
+      this.check_fecha_expiracion.checked = false;
+    }
+
+    if(this.check_huella_digital != this.check_huella_digital.checked){
+      this.check_huella_digital.checked = false;
+    }
+
+    if(this.check_foto != this.check_foto.checked){
+      this.check_foto.checked = false;
+    }
+
+    if(this.check_firma != this.check_firma.checked){
+      this.check_firma.checked = false;
+    }
+
+  }
+
+  // DIBUJAR CUADROS
   draw_cedula(){
     this.canvas = document.getElementById('micanvas');
     this.ctx = this.canvas.getContext("2d");
