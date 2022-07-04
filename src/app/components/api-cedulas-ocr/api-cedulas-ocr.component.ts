@@ -379,7 +379,6 @@ export class ApiCedulasOcrComponent implements OnInit {
     }
   }
 
-
   refresh(): void{
     window.location.reload();
   }
