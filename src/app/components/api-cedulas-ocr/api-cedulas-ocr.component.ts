@@ -48,6 +48,21 @@ export class ApiCedulasOcrComponent implements OnInit {
   check_foto: any;
   check_firma: any;
 
+  campo_cedula: any;
+  digito: any;
+  ultimo_digito: any;
+  pares: any;
+  impares: any;
+  number_1: any;
+  number_3: any;
+  number_5: any;
+  number_7: any;
+  number_9: any;
+  suma_total: any;
+  primer_digito_suma: any;
+  decena: any;
+  digito_validador: any;
+
 
   dra_img: boolean = false;
 
@@ -112,7 +127,8 @@ export class ApiCedulasOcrComponent implements OnInit {
           Object.assign(this.information_img, this.obj2)
 
           console.log('Respuesta del servidor: ', this.obj = this.information_cedulas, 'Dimensiones: ' , this.obj2 = this.information_img);
-          this.img_canvas()   
+          this.img_canvas()
+          this.validar_cedula()
           this.canv_img = true;
           return this.obj
         })
@@ -381,5 +397,62 @@ export class ApiCedulasOcrComponent implements OnInit {
 
   refresh(): void{
     window.location.reload();
+  }
+
+  validar_cedula(){
+    this.campo_cedula = this.information_cedulas.cedula.text_ocr
+
+    if(this.campo_cedula.length == 10){
+      this.digito = this.campo_cedula.substring(0,2)
+
+      if(this.digito >= 1 && this.digito <= 24){
+        this.ultimo_digito = this.campo_cedula.substring(9,10)
+        this.pares = parseInt(this.campo_cedula.substring(1,2)) + parseInt(this.campo_cedula.substring(3,4)) + parseInt(this.campo_cedula.substring(5,6)) + parseInt(this.campo_cedula.substring(7,8))
+
+        this.number_1 = this.campo_cedula.substring(0,1);
+        this.number_1 = (this.number_1 * 2)
+        if(this.number_1 > 9){ this.number_1 = (this.number_1 - 9)}
+
+        this.number_3 = this.campo_cedula.substring(2,3);
+        this.number_3 = (this.number_3 * 2)
+        if(this.number_3 > 9){ this.number_3 = (this.number_3 - 9)}
+
+        this.number_5 = this.campo_cedula.substring(4,5);
+        this.number_5 = (this.number_5 * 2)
+        if(this.number_5 > 9){ this.number_5 = (this.number_5 - 9)}
+
+        this.number_7 = this.campo_cedula.substring(6,7);
+        this.number_7 = (this.number_7 * 2)
+        if(this.number_7 > 9){ this.number_7 = (this.number_7 - 9)}
+
+        this.number_9 = this.campo_cedula.substring(8,9);
+        this.number_9 = (this.number_9 * 2)
+        if(this.number_9 > 9){ this.number_9 = (this.number_9 - 9)}
+
+        this.impares = this.number_1 + this.number_3 + this.number_5 + this.number_7 + this.number_9;
+
+        this.suma_total = (this.pares + this.impares);
+
+        this.primer_digito_suma = String(this.suma_total).substring(0,1)
+
+        this.decena = (parseInt(this.primer_digito_suma) + 1) * 10;
+
+        this.digito_validador = this.decena - this.suma_total
+
+        if(this.digito_validador == 10){
+          this.digito_validador = 0
+        }
+
+        if(this.digito_validador == this.ultimo_digito){
+          console.log('La cedula: ' + this.campo_cedula + ' es correcta')
+        }else{
+          console.log('La cedula: ' + this.campo_cedula + ' es incorrecta')
+        }
+      }else{
+        console.log('Esta cedula no pertenece a ninguna Region')
+      }
+    }else{
+      console.log('Esta cedula tiene menos de 10 digitos')
+    }
   }
 }

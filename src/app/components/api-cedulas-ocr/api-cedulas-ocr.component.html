@@ -50,16 +50,16 @@
 
       <!-- CARTA PARA LOS CHECKS -->
       <div id="campos" class="card shadow col-7 bg-body rounded" *ngIf="loading == false" style="width:800px;">
-        <h5 class="card-title text-center">Lista de campos de una cedula</h5>
 
         <div id="buttons">
           <br>
-          <button type="button" class="btn btn-info" (click)="refresh()"> Nuevo Archivo</button>
+          <button type="button" class="btn btn-info" (click)="refresh()">Nuevo Archivo</button>
         </div>
         <div id="button2">
           <br>
           <button type="button" class="btn btn-danger" (click)="uncheck()">Resetear cuadros</button>
         </div>
+        <br>
         <br>
           <h5 class="card-text text-center">Información de la cedula</h5>
       
@@ -68,7 +68,7 @@
             <tr>
               <th scope="col" style="text-align: center;">CAMPO</th>
               <th scope="col" style="text-align: center;">TEXTO</th>
-              <th scope="col" style="text-align: center;">ACCIÓN</th>
+              <th scope="col" style="text-align: center;">DIBUJAR</th>
             </tr>
           </thead>
           <tbody class="post">
