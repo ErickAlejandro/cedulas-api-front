@@ -400,7 +400,7 @@ export class ApiCedulasOcrComponent implements OnInit {
   }
 
   validar_cedula(){
-    this.campo_cedula = this.information_cedulas.cedula.text_ocr
+    this.campo_cedula = this.information_cedulas.cedula.text_ocr.replace('-', '')
 
     if(this.campo_cedula.length == 10){
       this.digito = this.campo_cedula.substring(0,2)
@@ -421,7 +421,7 @@ export class ApiCedulasOcrComponent implements OnInit {
         this.number_5 = (this.number_5 * 2)
         if(this.number_5 > 9){ this.number_5 = (this.number_5 - 9)}
 
-        this.number_7 = this.campo_cedula.substring(6,7);
+        this.number_7 = this.campo_cedula.substring(6,7);                                                                                                                                                      
         this.number_7 = (this.number_7 * 2)
         if(this.number_7 > 9){ this.number_7 = (this.number_7 - 9)}
 
@@ -444,14 +444,18 @@ export class ApiCedulasOcrComponent implements OnInit {
         }
 
         if(this.digito_validador == this.ultimo_digito){
+          alert('La cedula: ' + this.campo_cedula + ' es correcta')
           console.log('La cedula: ' + this.campo_cedula + ' es correcta')
         }else{
+          alert('La cedula: ' + this.campo_cedula + ' es incorrecta')
           console.log('La cedula: ' + this.campo_cedula + ' es incorrecta')
         }
       }else{
+        alert('Esta cedula no pertenece a ninguna Region')
         console.log('Esta cedula no pertenece a ninguna Region')
       }
     }else{
+      alert('Esta cedula tiene menos de 10 digitos')
       console.log('Esta cedula tiene menos de 10 digitos')
     }
   }
