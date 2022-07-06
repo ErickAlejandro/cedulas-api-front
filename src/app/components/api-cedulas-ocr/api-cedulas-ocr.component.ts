@@ -4,6 +4,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Information_cedulas } from 'src/app/models/information_cedulas';
 import { Information_img } from 'src/app/models/information_img';
 import { APICedulasService } from 'src/app/service/api-cedulas.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-api-cedulas-ocr',
@@ -248,6 +250,8 @@ export class ApiCedulasOcrComponent implements OnInit {
       this.ctx.strokeStyle = '#FFFF00';
       this.ctx.lineWidth = 4;
       this.ctx.strokeRect(this.information_cedulas.nombres.x0,this.information_cedulas.nombres.y0, this.draw_width, this.draw_height);
+    } else {
+      this.img_canvas();
     }
   }
 
@@ -264,6 +268,8 @@ export class ApiCedulasOcrComponent implements OnInit {
       this.ctx.strokeStyle = '#808000';
       this.ctx.lineWidth = 4;
       this.ctx.strokeRect(this.information_cedulas.lugar_nacimiento.x0,this.information_cedulas.lugar_nacimiento.y0, this.draw_width, this.draw_height);
+    } else {
+      this.img_canvas();
     }
   }
 
@@ -280,6 +286,8 @@ export class ApiCedulasOcrComponent implements OnInit {
       this.ctx.strokeStyle = '#008000';
       this.ctx.lineWidth = 4;
       this.ctx.strokeRect(this.information_cedulas.fecha_nacimiento.x0,this.information_cedulas.fecha_nacimiento.y0, this.draw_width, this.draw_height);
+    } else {
+      this.img_canvas();
     }
   }
 
@@ -296,6 +304,8 @@ export class ApiCedulasOcrComponent implements OnInit {
       this.ctx.strokeStyle = '#00FFFF';
       this.ctx.lineWidth = 4;
       this.ctx.strokeRect(this.information_cedulas.nacionalidad.x0,this.information_cedulas.nacionalidad.y0, this.draw_width, this.draw_height);
+    } else {
+      this.img_canvas();
     }
   }
 
@@ -312,6 +322,8 @@ export class ApiCedulasOcrComponent implements OnInit {
       this.ctx.strokeStyle = '#008080';
       this.ctx.lineWidth = 4;
       this.ctx.strokeRect(this.information_cedulas.sexo.x0,this.information_cedulas.sexo.y0, this.draw_width, this.draw_height);
+    } else {
+      this.img_canvas();
     }
   }
 
@@ -328,6 +340,8 @@ export class ApiCedulasOcrComponent implements OnInit {
       this.ctx.strokeStyle = '#0000FF';
       this.ctx.lineWidth = 4;
       this.ctx.strokeRect(this.information_cedulas.estado_civil.x0,this.information_cedulas.estado_civil.y0, this.draw_width, this.draw_height);
+    } else {
+      this.img_canvas();
     }
   }
 
@@ -344,6 +358,8 @@ export class ApiCedulasOcrComponent implements OnInit {
       this.ctx.strokeStyle = '#800080';
       this.ctx.lineWidth = 4;
       this.ctx.strokeRect(this.information_cedulas.foto.x0,this.information_cedulas.foto.y0, this.draw_width, this.draw_height);
+    } else {
+      this.img_canvas();
     }
   }
 
@@ -360,6 +376,8 @@ export class ApiCedulasOcrComponent implements OnInit {
       this.ctx.strokeStyle = '#A8366A';
       this.ctx.lineWidth = 4;
       this.ctx.strokeRect(this.information_cedulas.fecha_expiracion.x0,this.information_cedulas.fecha_expiracion.y0, this.draw_width, this.draw_height);
+    } else {
+      this.img_canvas();
     }
   }
 
@@ -376,6 +394,8 @@ export class ApiCedulasOcrComponent implements OnInit {
       this.ctx.strokeStyle = '#40F3FF';
       this.ctx.lineWidth = 4;
       this.ctx.strokeRect(this.information_cedulas.huella_digital.x0,this.information_cedulas.huella_digital.y0, this.draw_width, this.draw_height);
+    } else {
+      this.img_canvas();
     }
   }
 
@@ -392,6 +412,8 @@ export class ApiCedulasOcrComponent implements OnInit {
       this.ctx.strokeStyle = '#FF8F00';
       this.ctx.lineWidth = 4;
       this.ctx.strokeRect(this.information_cedulas.firma.x0,this.information_cedulas.firma.y0, this.draw_width, this.draw_height);
+    } else {
+      this.img_canvas();
     }
   }
 
@@ -444,18 +466,39 @@ export class ApiCedulasOcrComponent implements OnInit {
         }
 
         if(this.digito_validador == this.ultimo_digito){
-          alert('La cedula: ' + this.campo_cedula + ' es correcta')
           console.log('La cedula: ' + this.campo_cedula + ' es correcta')
+          Swal.fire("Yes", "La cedula ingresada es correcta.", "success")
         }else{
-          alert('La cedula: ' + this.campo_cedula + ' es incorrecta')
+          Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'La cedula ingresada es incorrecta, intente nuevamente.',
+            showConfirmButton: false,
+            timer: 2000
+          })
           console.log('La cedula: ' + this.campo_cedula + ' es incorrecta')
+          this.refresh()
         }
       }else{
-        alert('Esta cedula no pertenece a ninguna Region')
+        Swal.fire({
+          position: 'top-end',
+          icon: 'info',
+          title: 'La cedula ingresada no pertenece a ninguna region del Ecuador, intente nuevamente.',
+          showConfirmButton: false,
+          timer: 2000
+        })
+        this.refresh()
         console.log('Esta cedula no pertenece a ninguna Region')
       }
     }else{
-      alert('Esta cedula tiene menos de 10 digitos')
+      Swal.fire({
+        position: 'top-end',
+        icon: 'info',
+        title: 'La cedula ingresada tiene menos de 10 digitos, intente nuevamente.',
+        showConfirmButton: false,
+        timer: 2000
+      })
+      this.refresh()
       console.log('Esta cedula tiene menos de 10 digitos')
     }
   }

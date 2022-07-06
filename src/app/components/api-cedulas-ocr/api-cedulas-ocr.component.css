@@ -1,5 +1,5 @@
 .card {
-    padding: 10px;
+    padding: 30px;
     border-radius: 1rem;
     margin-top: 50px;
     margin: auto;
@@ -30,13 +30,14 @@ div#button2{
     text-align:center;
 }
 
-button#uptade {
+button#update {
     margin: -30px -50px;
     position: relative;
-    top: 50%;
+    margin-top: 20px;
+    margin-bottom: 20px;
     left: 50%;
     border: 1px solid;
-    box-shadow: 1px;
+    box-shadow: 2px;
     border-radius: 3px;
     bottom: 50%;
 }
@@ -72,4 +73,12 @@ canvas{
 
 table{
     align-items: center;
+}
+
+h6{
+    margin-bottom: 20%;
+}
+
+div#title{
+    margin-top: 10px;
 }

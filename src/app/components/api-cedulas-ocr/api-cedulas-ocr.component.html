@@ -1,5 +1,10 @@
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css" >
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" >
+
 <html>
     <ng-container>
+      <div id="title">
       <h1 id="title">
         <p class="text-center">API Cedulas OCR <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
           fill="currentColor" class="bi bi-person-bounding-box" viewBox="0 0 16 16">
@@ -8,6 +13,7 @@
           <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
         </svg></p>
       </h1>
+    </div>
     </ng-container>
 
     <div class="container">
@@ -24,7 +30,8 @@
 
   <!-- CARTA DE SUBIR EL ARCHIVO -->
     <div class="row">
-      <div class="card shadow col-5 bg-body rounded" style="width: auto;">
+      <div class="card shadow col-5 bg-body rounded animated fadeInUp" style="width: auto;">
+        <br>
         <h5 class="card-title text-center ">Cedula de Identidad</h5>
         <!-- PREVISTA DE LA IMAGEN -->
         <div id="div_img" align="center" *ngIf="preview && !this.canv_img">
@@ -41,16 +48,16 @@
             <!-- definir componenete -->
             <input (change)="capturarFile($event)" class="form-control" type="file" id="formFile">
           </div>
-  
           <div>
-            <button type="button" id="uptade" class="btn btn-dark" *ngIf="preview && !this.canv_img" [disabled]="loading" (click)="subirArchivo();">{{(loading) ? 'Cargando ...' : 'Subir Archivo'}}</button>
+            <button type="button" id="update" class="btn btn-dark animated bounce" *ngIf="preview && !this.canv_img" [disabled]="loading" (click)="subirArchivo();">{{(loading) ? 'Cargando ...' : 'Subir Archivo'}}</button>
           </div>
         </div>
       </div>
 
       <!-- CARTA PARA LOS CHECKS -->
-      <div id="campos" class="card shadow col-7 bg-body rounded" *ngIf="loading == false" style="width:800px;">
+      <div id="campos" class="card shadow col-7 bg-body rounded animated fadeInRight" *ngIf="loading == false" style="width:1000px;">
 
+        <h5 class="card-text text-center">Información de la cedula</h5>
         <div id="buttons">
           <br>
           <button type="button" class="btn btn-info" (click)="refresh()">Nuevo Archivo</button>
@@ -59,9 +66,6 @@
           <br>
           <button type="button" class="btn btn-danger" (click)="uncheck()">Resetear cuadros</button>
         </div>
-        <br>
-        <br>
-          <h5 class="card-text text-center">Información de la cedula</h5>
       
         <table class="table table-dark">
           <thead>
