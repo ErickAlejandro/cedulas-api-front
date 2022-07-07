@@ -2,3 +2,9 @@ h1{
     font-family: 'Courier New', Courier, monospace;
     margin-top: 20px;
 }
+
+img#seleccion{
+    border: 1px solid black;
+    border-radius: 2rem;
+    box-shadow: 2px;
+}
