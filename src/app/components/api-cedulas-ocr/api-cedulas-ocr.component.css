@@ -75,10 +75,12 @@ table{
     align-items: center;
 }
 
-h6{
-    margin-bottom: 20%;
-}
-
 div#title{
     margin-top: 10px;
+}
+
+img.icons{
+    width: 50px;
+    height: 50px;
+    display: flex;
 }

@@ -6,7 +6,7 @@
     <ng-container>
       <div id="title">
       <h1 id="title">
-        <p class="text-center">API Cedulas OCR <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+        <p class="text-center animated pulse ">API Cedulas OCR <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
           fill="currentColor" class="bi bi-person-bounding-box" viewBox="0 0 16 16">
           <path
           d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5z" />
@@ -23,6 +23,11 @@
           <h6>Agrega el archivo que necesites Aplicar la Tecnologia OCR de recoleccion de Datos <p class="fst-italic">(Es
             necesario que sea una Cedula)</p>
         </h6>
+      </div>
+      <div class="row" *ngIf="!preview">
+        <img class="col-2" id="icons" src="../../../assets/images/png.jpg" alt="png">
+        <img class="col-2" id="icons" src="../../../assets/images/jpg.PNG" alt="jpg">
+        <img class="col-2" id="icons" src="../../../assets/images/JPEG.jpg" alt="jpeg">
       </div>
     </ng-container>
     </div>

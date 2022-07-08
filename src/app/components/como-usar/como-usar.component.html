@@ -1,20 +1,51 @@
-<h1 class="text-center">Como usar la API-CEDULAS-OCR</h1>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css" >
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" >
 
-<p>Este es un tutoria de como usar la aplicación API-CEDULAS-OCR, lo primero es ubicarse en la página <a href="/">principal</a> y ubicarnos en <b>Choose File </b><i>(Seleccionar Archivo)</i></p>
-<div>
-<img src="../../../assets/images/choose.jpg" class="img-fluid" alt="Seleccionar Imagen">
+<h1 class="text-center animated pulse">MANUAL DE USO (API-CEDULAS-OCR)</h1>
+<div class="body animated fadeInUp">
+    <h5>Este es un tutoria de como usar la aplicación API-CEDULAS-OCR, lo primero es ubicarse en la página <a
+            href="/">principal</a> y ubicarnos en <b>Choose File </b><i>(Seleccionar Archivo)</i></h5>
+    <br>
+    <div>
+        <img src="../../../assets/images/choose.jpg" class="img-fluid" alt="Seleccionar Imagen">
+    </div>
+    <h5>Luego escogemos una imagen con extenciones: <i>.jpg, png, jpeg</i>.</h5>
+    <div>
+        <br>
+        <img id="seleccion" src="../../../assets/images/image.PNG" alt="Seleccion">
+    </div>
+    <h5>A continuacion se mostrará una previsualización de la imagen seleccionada.</h5>
+    <br>
+    <div>
+        <img src="../../../assets/images/Previsualizacion.PNG" alt="Previsualizacion de la Imagen">
+    </div>
+    <h5>Enviamos la imagen al servidor usando el boton <b>Subir Archivo</b>. Lo que hara una peticion al servidor y
+        retornara los datos que se encuentre en el Documento.</h5>
+    <br>
+    <div>
+        <img src="../../../assets/images/subirArchivo.PNG" alt="Subir Archivo">}
+        <img src="../../../assets/images/loading.PNG" alt="loading">
+    </div>
+    <h5>
+        Nos devolvera una alerta dependiendo de la información ingresada a travez del <i>metodo de autentificación</i>
+        de Cedulas Ecuatorianas.
+    </h5>
+    <br>
+    <div>
+        <img src="../../../assets/images/Alert_succes.PNG" alt="Alerta">
+    </div>
+    <h5>
+        Una ves cargado el proceso, la aplicación nos cargara una seccion lateral para con la información de las cedulas
+        en una tabla en donde se aprecia los datos extraidos del Documento subido.
+    </h5>
+    <br>
+    <div>
+        <img src="../../../assets/images/div_lateral.PNG" alt="info">
+    </div>
+    <h5>En caso de ser necesario podra seleccionar el Check ubicado en la parte lateral de la tabla para poder dibujar el contorno de donde se encuentra ubicado cada campo.</h5>
+    <br>
+    <div>
+        <img src="../../../assets/images/actions.PNG" alt="actions">
+    </div>
 </div>
 
-<p>Luego escogemos una imagen con extenciones: <i>.jpg, png, gif</i>.</p>
-<div >
-    <img id="seleccion" src="../../../assets/images/image.PNG" alt="Seleccion">
-</div>
-<br>
-<p>A continuacion se mostrará una previsualización de la imagen seleccionada.</p>
-<div>
-    <img src="../../../assets/images/Previsualizacion.PNG" alt="Previsualizacion de la Imagen">
-</div>
-<p>Enviamos la imagen al servidor usando el boton <b>Subir Archivo</b>. Lo que hara una peticion al servidor y retornara los datos que se encuentre en el Documento.</p>
-<div>
-    <img src="../../../assets/images/subirArchivo.PNG" alt="Subir Archivo">
-</div>
