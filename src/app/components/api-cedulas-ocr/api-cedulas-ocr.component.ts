@@ -66,6 +66,9 @@ export class ApiCedulasOcrComponent implements OnInit {
   digito_validador: any;
 
 
+  fecha_verify: any;
+  fecha_actual: any;
+
   dra_img: boolean = false;
 
   llaves = Object.keys(this.information_cedulas)
@@ -491,15 +494,20 @@ export class ApiCedulasOcrComponent implements OnInit {
         console.log('Esta cedula no pertenece a ninguna Region')
       }
     }else{
-      Swal.fire({
-        position: 'top-end',
-        icon: 'info',
-        title: 'La cedula ingresada tiene menos de 10 digitos, intente nuevamente.',
-        showConfirmButton: false,
-        timer: 2000
-      })
-      this.refresh()
-      console.log('Esta cedula tiene menos de 10 digitos')
+      this.date()
+    }
+  }
+
+  date(){
+    this.fecha_verify = this.information_cedulas.fecha_expiracion.text_ocr
+    this.fecha_verify.replace('-', ',')
+    this.fecha_verify = new Date(this.fecha_verify)
+
+    this.fecha_actual = Date.now();
+
+    if (this.fecha_verify >= this.fecha_actual){
+      Swal.fire("Yes", "La fecha se encuentra correcta.", "success")
+      console.log('La fecha si coincide')
     }
   }
 }
