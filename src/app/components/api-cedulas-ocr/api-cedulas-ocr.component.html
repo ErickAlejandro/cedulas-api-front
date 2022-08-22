@@ -1,12 +1,11 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css" >
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" >
-
 <html>
     <ng-container>
       <div id="title">
       <h1 id="title">
-        <p class="text-center animated pulse ">API Cedulas OCR <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+        <p class="text-center animated pulse ">Field Detection <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
           fill="currentColor" class="bi bi-person-bounding-box" viewBox="0 0 16 16">
           <path
           d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5z" />
@@ -15,13 +14,11 @@
       </h1>
     </div>
     </ng-container>
-
     <div class="container">
     <div class="row">
       <ng-container id="program_ocrd">
         <div class="text-center">
-          <h6>Agrega el archivo que necesites Aplicar la Tecnologia OCR de recoleccion de Datos <p class="fst-italic">(Es
-            necesario que sea una Cedula)</p>
+          <h6>Add the image that you need to apply the OCR Data Collection Technology <p class="fst-italic">(The file must be an Id Card).</p>
         </h6>
       </div>
       <div class="row" *ngIf="!preview">
@@ -36,8 +33,7 @@
   <!-- CARTA DE SUBIR EL ARCHIVO -->
     <div class="row">
       <div class="card shadow col-5 bg-body rounded animated fadeInUp" style="width: auto;">
-        <br>
-        <h5 class="card-title text-center ">Cedula de Identidad</h5>
+        <h3 class="card-title text-center ">ID CARD.</h3>
         <!-- PREVISTA DE LA IMAGEN -->
         <div id="div_img" align="center" *ngIf="preview && !this.canv_img">
           <img id="imageDraw" width="1000px" height="auto" [src]="preview" alt="Imagen de la cedula">
@@ -46,9 +42,7 @@
           <canvas id="micanvas"></canvas>
         </div>
         <div>
-          <p class="card-text text-center"> Agregar una imagen de alguna cedula de identidad Ecuatoriana, puede ser tanto
-            la
-            parte frontal como la trasera de este documento.</p>
+          <p class="card-text text-center"> Add an image of an Ecuadorian ID CARD, it can be either the front or the back of this document.</p>
           <div class="mb-3">
             <!-- definir componenete -->
             <input (change)="capturarFile($event)" class="form-control" type="file" id="formFile">
@@ -62,77 +56,77 @@
       <!-- CARTA PARA LOS CHECKS -->
       <div id="campos" class="card shadow col-7 bg-body rounded animated fadeInRight" *ngIf="loading == false" style="width:700px;">
 
-        <h5 class="card-text text-center">Información de la cedula</h5>
+        <h5 class="card-text text-center">Information of ID</h5>
         <div id="buttons">
           <br>
-          <button type="button" class="btn btn-info" (click)="refresh()">Nuevo Archivo</button>
+          <button type="button" class="btn btn-info" (click)="refresh()">New File</button>
         </div>
         <div id="button2">
           <br>
-          <button type="button" class="btn btn-danger" (click)="uncheck()">Resetear cuadros</button>
+          <button type="button" class="btn btn-danger" (click)="uncheck()">Reset drawing</button>
         </div>
       
         <table class="table table-dark">
           <thead>
             <tr>
-              <th scope="col" style="text-align: center;">CAMPO</th>
-              <th scope="col" style="text-align: center;">TEXTO</th>
-              <th scope="col" style="text-align: center;">DIBUJAR</th>
+              <th scope="col" style="text-align: center;">FIELD</th>
+              <th scope="col" style="text-align: center;">TEXT</th>
+              <th scope="col" style="text-align: center;">DRAW</th>
             </tr>
           </thead>
           <tbody class="post">
             <tr *ngIf="this.information_cedulas.cedula.text_ocr != '' " style="text-align: center;">
-              <td scope="row"> Cedula</td>
+              <td scope="row"> ID</td>
               <td scope="row">{{this.information_cedulas.cedula.text_ocr}}</td>
               <td scope="row"><input type="checkbox"  class="form-check-input" id="check_cedula"  (click)="draw_cedula()" value="false"> </td>
             </tr>
             <tr *ngIf="this.information_cedulas.nombres.text_ocr != '' " style="text-align: center;">
-              <td scope="row"> Nombres</td>
+              <td scope="row"> Names</td>
               <td scope="row">{{this.information_cedulas.nombres.text_ocr}}</td>
               <td scope="row"><input type="checkbox" class="form-check-input" id="check_nombres"  (click)="draw_nombre()" value="false"> </td>
             </tr>
             <tr *ngIf="this.information_cedulas.lugar_nacimiento.text_ocr != '' " style="text-align: center;">
-              <td scope="row"> Lugar de Nacimiento</td>
+              <td scope="row"> Place of Birth</td>
               <td scope="row">{{this.information_cedulas.lugar_nacimiento.text_ocr}}</td>
               <td scope="row"><input type="checkbox" class="form-check-input" id="check_lugar_nacimiento"  (click)="draw_lugar_nacimiento()" value="false"></td>
             </tr>
             <tr *ngIf="this.information_cedulas.fecha_nacimiento.text_ocr != '' " style="text-align: center;">
-              <td scope="row"> Fecha de Nacimiento</td>
+              <td scope="row"> Date of Birth</td>
               <td scope="row">{{this.information_cedulas.fecha_nacimiento.text_ocr}}</td>
               <td scope="row"><input type="checkbox" class="form-check-input" id="check_fecha_nacimiento"  (click)="draw_fecha_nacimiento()" value="false"> </td>
             </tr>
             <tr *ngIf="this.information_cedulas.nacionalidad.text_ocr != '' " style="text-align: center;">
-              <td scope="row"> Nacionalidad</td>
+              <td scope="row"> Nationality</td>
               <td scope="row">{{this.information_cedulas.nacionalidad.text_ocr}}</td>
               <td scope="row"><input type="checkbox" class="form-check-input" id="check_nacionalidad"  (click)="draw_nacionalidad()" value="false"> </td>
             </tr>
             <tr *ngIf="this.information_cedulas.sexo.text_ocr != '' " style="text-align: center;">
-              <td scope="row"> Sexo</td>
+              <td scope="row"> Sex</td>
               <td scope="row">{{this.information_cedulas.sexo.text_ocr}}</td>
               <td scope="row"><input type="checkbox" class="form-check-input" id="check_sexo"  (click)="draw_sexo()" value="false"></td>
             </tr>
             <tr *ngIf="this.information_cedulas.estado_civil.text_ocr != '' " style="text-align: center;">
-              <td scope="row"> Estado Civil</td>
+              <td scope="row"> Marital Status</td>
               <td scope="row">{{this.information_cedulas.estado_civil.text_ocr}}</td>
               <td scope="row"><input type="checkbox" class="form-check-input" id="check_estado_civil"  (click)="draw_estado_civil()" value="false"> </td>
             </tr>
             <tr *ngIf="this.information_cedulas.foto.text_ocr != '' " style="text-align: center;">
-              <td scope="row"> Foto</td>
+              <td scope="row"> Picture</td>
               <td scope="row">{{this.information_cedulas.foto.text_ocr}}</td>
-              <td scope="row"> <input type="checkbox" class="form-check-input" id="check_foto" (click)="draw_foto()" value="false"> </td>
+              <td scope="row"> <input type="checkbox" class="form-check-input" id="check_foto" (click)="draw_foto()" value="false"></td>
             </tr>
             <tr *ngIf="this.information_cedulas.fecha_expiracion.text_ocr != '' " style="text-align: center;">
-              <td scope="row"> Fecha de Expiracion</td>
+              <td scope="row"> Date of Expiration</td>
               <td scope="row">{{this.information_cedulas.fecha_expiracion.text_ocr}}</td>
               <td scope="row"> <input type="checkbox" class="form-check-input" id="check_fecha_expiracion" (click)="draw_fecha_expiracion()" value="false"> </td>
             </tr>
             <tr *ngIf="this.information_cedulas.huella_digital.text_ocr != '' " style="text-align: center;">
-              <td scope="row"> Huella Digital</td>
+              <td scope="row"> Fingerprint</td>
               <td scope="row">{{this.information_cedulas.huella_digital.text_ocr}}</td>
               <td scope="row"> <input type="checkbox" class="form-check-input" id="check_huella_digital" (click)="draw_huella_digital()" value="false"></td>
             </tr>
             <tr *ngIf="this.information_cedulas.firma.text_ocr != '' " style="text-align: center;">
-              <td scope="row"> Firma</td>
+              <td scope="row"> Signature</td>
               <td scope="row">{{this.information_cedulas.firma.text_ocr}}</td>
               <td scope="row"> <input type="checkbox" class="form-check-input" id="check_firma" (click)="draw_firma()" value="false"></td>
             </tr>

@@ -132,8 +132,8 @@ export class ApiCedulasOcrComponent implements OnInit {
           Object.assign(this.information_img, this.obj2)
 
           console.log('Respuesta del servidor: ', this.obj = this.information_cedulas, 'Dimensiones: ' , this.obj2 = this.information_img);
-          this.img_canvas()
-          this.validar_cedula()
+          this.img_canvas();
+          this.validar_cedula();
           this.canv_img = true;
           return this.obj
         })
@@ -210,9 +210,8 @@ export class ApiCedulasOcrComponent implements OnInit {
     if(this.check_huella_digital != this.check_huella_digital.checked){
       this.check_huella_digital.checked = false;
     }
-
     if(this.check_foto != this.check_foto.checked){
-      this.check_foto.checked = false;
+      this.check_foto = false;
     }
 
     if(this.check_firma != this.check_firma.checked){
