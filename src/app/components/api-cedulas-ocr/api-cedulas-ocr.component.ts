@@ -69,6 +69,9 @@ export class ApiCedulasOcrComponent implements OnInit {
   fecha_verify: any;
   fecha_actual: any;
 
+  myObj:any = [];
+  otherObj:any = [];
+
   dra_img: boolean = false;
 
   llaves = Object.keys(this.information_cedulas)
@@ -116,24 +119,22 @@ export class ApiCedulasOcrComponent implements OnInit {
       this.loading = true;
       const formularioDatos = new FormData();
       this.archivos.forEach((archivo: any) => {
-        console.log(archivo);
         formularioDatos.append('file', archivo)
         console.log(archivo)
       })
-
-      this.rest.post(`http://75.101.192.48:5000/cedula/file-upload`, formularioDatos)
+      this.rest.post(formularioDatos)
         .subscribe((res: any) => {
           this.loading = false;
-          const myObj = JSON.stringify(res.information_cedulas)
-          const otherObj = JSON.stringify(res.information_img)
-          this.obj = JSON.parse(myObj);
-          this.obj2 = JSON.parse(otherObj);
-          Object.assign(this.information_cedulas, this.obj)
-          Object.assign(this.information_img, this.obj2)
 
-          console.log('Respuesta del servidor: ', this.obj = this.information_cedulas, 'Dimensiones: ' , this.obj2 = this.information_img);
+          this.myObj = (res.information_cedulas)
+          this.otherObj = (res.Information_img)
+
+          Object.assign(this.information_cedulas, this.myObj)
+          Object.assign(this.information_img, this.otherObj)
+
+          console.log('Respuesta del servidor: ', this.information_cedulas, 'Dimensiones: ' , this.information_img);
           this.img_canvas();
-          this.validar_cedula();
+          // this.validar_cedula();
           this.canv_img = true;
           return this.obj
         })

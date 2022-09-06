@@ -2,19 +2,19 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { map, Observable } from 'rxjs';
-import { ICedulas } from '../interfaces/ICedulas';
 
 @Injectable({
   providedIn: 'root'
 })
 export class APICedulasService {
 
-  urlApi = 'http://3.89.217.18:5000/cedula/file-upload'
+  urlApi = 'http://192.168.1.9:5000/cedula/file-upload/'
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    console.log('Servicio')
+  }
 
-  public post(url: string, body: FormData) {
-    let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post(url, body).pipe(map(data => { return data }));
+  public post(body: FormData) {
+    return this.http.post(this.urlApi, body).pipe(map(data => { return data }));
   }
 }

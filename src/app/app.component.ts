@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { ICedulas } from './interfaces/ICedulas';
 
 @Component({
   selector: 'app-root',
