@@ -134,7 +134,7 @@ export class ApiCedulasOcrComponent implements OnInit {
 
           console.log('Respuesta del servidor: ', this.information_cedulas, 'Dimensiones: ' , this.information_img);
           this.img_canvas();
-          // this.validar_cedula();
+          this.validar_cedula();
           this.canv_img = true;
           return this.obj
         })
@@ -480,7 +480,6 @@ export class ApiCedulasOcrComponent implements OnInit {
             timer: 2000
           })
           console.log('La cedula: ' + this.campo_cedula + ' es incorrecta')
-          this.refresh()
         }
       }else{
         Swal.fire({
@@ -490,7 +489,6 @@ export class ApiCedulasOcrComponent implements OnInit {
           showConfirmButton: false,
           timer: 2000
         })
-        this.refresh()
         console.log('Esta cedula no pertenece a ninguna Region')
       }
     }else{
