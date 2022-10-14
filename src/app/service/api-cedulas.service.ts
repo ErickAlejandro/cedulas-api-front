@@ -8,7 +8,7 @@ import { map, Observable } from 'rxjs';
 })
 export class APICedulasService {
 
-  urlApi = 'http://192.168.1.9:5000/cedula/file-upload/'
+  urlApi = 'http://192.168.0.107:5000/cedula/file-upload/'
 
   constructor(private http: HttpClient) { 
     console.log('Servicio')
